@@ -13,6 +13,7 @@ def send_email(to: str, subject: str, html: str) -> None:
     msg = EmailMessage()
     msg["From"] = f"Jonas Frugte <{GMAIL_ADDRESS}>"
     msg["To"] = to
+    msg["Cc"] = "j.s.a.frugte@uu.nl"
     msg["Reply-To"] = "j.s.a.frugte@uu.nl"
     msg["Subject"] = subject
     msg.set_content(html, subtype="html")

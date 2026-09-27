@@ -8,5 +8,5 @@ def get_next_session() -> pd.Series:
     df = df.dropna(subset=["Date", "Speaker", "Speaker email"])
 
     today = pd.Timestamp.today().normalize()
-    next_session = df[df["Date"] >= today].iloc[0]
+    next_session = df[df["Date"] > today].iloc[0]
     return next_session
