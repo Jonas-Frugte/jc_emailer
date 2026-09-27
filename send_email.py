@@ -2,9 +2,13 @@ import os
 import smtplib
 from email.message import EmailMessage
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 GMAIL_ADDRESS = "jonasfrugte@gmail.com"
 APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
-
+ 
 def send_email(to: str, subject: str, html: str) -> None:
     msg = EmailMessage()
     msg["From"] = f"Jonas Frugte <{GMAIL_ADDRESS}>"
