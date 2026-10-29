@@ -20,7 +20,7 @@ def reminder_email(name: str, date: pd.Timestamp) -> str:
     return f"""<html><body>
 <p>Hi {name},</p>
 <p>This is a reminder that you are scheduled as the <b>speaker</b> at journal club on
-<b>{_format_date(date)} at 10:00</b> in room <b>BB 7.19</b> (Buys Ballot building).</p>
+<b>{_format_date(date)} at 10:00</b> in room <b>BB 7.12</b> (Buys Ballot building).</p>
 <p>Please upload the paper you will be presenting to the journal club Teams channel before the session.</p>
 {_footer()}
 </body></html>"""
@@ -30,7 +30,7 @@ def reminder_email_backup(name: str, date: pd.Timestamp) -> str:
     return f"""<html><body>
 <p>Hi {name},</p>
 <p>This is a reminder that you are scheduled as the <b>backup speaker</b> at journal club on
-<b>{_format_date(date)} at 10:00</b> in room <b>BB 7.19</b> (Buys Ballot building).</p>
+<b>{_format_date(date)} at 10:00</b> in room <b>BB 7.12</b> (Buys Ballot building).</p>
 <p>The backup speaker is always the person presenting at the session after, so you will already
 be preparing a paper anyway. If the scheduled speaker can't make it, you would simply present
 your paper one session early.</p>
@@ -46,7 +46,7 @@ def write_emails(row: pd.Series) -> tuple[str, str, str, str]:
     date = row["Date"]
 
     email = reminder_email(name=name_speaker, date=date)
-    backup_email = reminder_email(name=name_backup, date=date)
+    backup_email = reminder_email_backup(name=name_backup, date=date)
 
     return email_speaker, email, email_backup, backup_email
 
