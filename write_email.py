@@ -2,6 +2,7 @@ import pandas as pd
 
 SCHEDULE_URL = "https://docs.google.com/spreadsheets/d/1jsMeb0MDqyzUjYp_A6jo_vScGJpHpBcJsnMQF2ELCB0/edit?usp=sharing"
 ORGANIZER_EMAIL = "j.s.a.frugte@uu.nl"
+COORGANIZER_EMAIL = "m.l.vanheukelum@uu.nl"
 
 def _format_date(date: pd.Timestamp) -> str:
     # e.g. "Wednesday 7 October 2026"
@@ -9,8 +10,7 @@ def _format_date(date: pd.Timestamp) -> str:
 
 def _footer() -> str:
     return f"""
-<p>If you won't be available, please email me at
-<a href="mailto:{ORGANIZER_EMAIL}">{ORGANIZER_EMAIL}</a> as soon as possible.</p>
+<p>Please email the paper you wish to present to the organizers (<a href="mailto:{ORGANIZER_EMAIL}">{ORGANIZER_EMAIL}</a> and <a href="mailto:{COORGANIZER_EMAIL}">{COORGANIZER_EMAIL}</a>) by <b> the Friday before you will present</b>. If you don't do this, we will assume you missed our email(s).</p>
 <p>You can find the full schedule here: <a href="{SCHEDULE_URL}">journal club schedule</a>.</p>
 <p>Best,<br>Jonas Frugte<br>Journal club organizer</p>
 """
@@ -21,7 +21,6 @@ def reminder_email(name: str, date: pd.Timestamp) -> str:
 <p>Hi {name},</p>
 <p>This is a reminder that you are scheduled as the <b>speaker</b> at journal club on
 <b>{_format_date(date)} at 10:00</b> in room <b>BB 7.12</b> (Buys Ballot building).</p>
-<p>Please upload the paper you will be presenting to the journal club Teams channel before the session.</p>
 {_footer()}
 </body></html>"""
 
@@ -34,7 +33,6 @@ def reminder_email_backup(name: str, date: pd.Timestamp) -> str:
 <p>The backup speaker is always the person presenting at the session after, so you will already
 be preparing a paper anyway. If the scheduled speaker can't make it, you would simply present
 your paper one session early.</p>
-<p>Please upload the paper you will be presenting to the journal club Teams channel.</p>
 {_footer()}
 </body></html>"""
 
