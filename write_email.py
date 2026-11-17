@@ -10,7 +10,7 @@ def _format_date(date: pd.Timestamp) -> str:
 
 def _footer() -> str:
     return f"""
-<p>Please email the paper you wish to present to the organizers (<a href="mailto:{ORGANIZER_EMAIL}">{ORGANIZER_EMAIL}</a> and <a href="mailto:{COORGANIZER_EMAIL}">{COORGANIZER_EMAIL}</a>) by <b> the Friday before you will present</b>. If you don't do this, we will assume you missed our email(s).</p>
+<p>Please email the paper you wish to present to the organizers (<a href="mailto:{ORGANIZER_EMAIL}">{ORGANIZER_EMAIL}</a> and <a href="mailto:{COORGANIZER_EMAIL}">{COORGANIZER_EMAIL}</a>) by <b> the Friday before you will present</b>. If you were not able to find a paper by that time, then do still send us an email letting us know if you will be able to present.</p>
 <p>You can find the full schedule here: <a href="{SCHEDULE_URL}">journal club schedule</a>.</p>
 <p>Best,<br>Jonas Frugte<br>Journal club organizer</p>
 """
